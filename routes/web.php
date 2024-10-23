@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TripController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('trips', TripController::class);
+
