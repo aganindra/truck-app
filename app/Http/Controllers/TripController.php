@@ -12,11 +12,24 @@ class TripController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         
-        $trips = trips::with(['driver', 'truck'])->get();
-        return view('trips.index', compact('trips'));
+          
+        $drivers = Drivers::all();
+    
+   
+        $query = Trips::with(['driver', 'truck']);
+
+   
+        if ($request->has('driver_id') && $request->input('driver_id') != '') {
+            $driverId = $request->input('driver_id');
+            $query->where('driver_id', $driverId);
+        }
+    
+        $trips = $query->get();
+    
+        return view('trips.index', compact('trips', 'drivers'));
     }
 
     /**
