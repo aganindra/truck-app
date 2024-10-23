@@ -72,6 +72,7 @@
         </tbody>
     </table>
         <a href="{{ route('trips.create') }}" class="btn btn-primary btn-lg">Add Trip</a>
+        <a href="{{ route('dashboard.index') }}" class="btn btn-secondary btn-lg">Dashboard</a>
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script> <!-- Include your JavaScript here -->
