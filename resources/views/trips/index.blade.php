@@ -38,6 +38,7 @@
                         <td>{{ $trip->distance }} km</td>
                         <td>{{ \Carbon\Carbon::parse($trip->trip_date)->format('Y-m-d') }}</td>
                         <td>
+                            <a href="{{ route('trips.show', $trip->id) }}" class="btn btn-primary btn-sm">show</a>
                             <a href="{{ route('trips.edit', $trip->id) }}" class="btn btn-warning btn-sm">Edit</a>
                             <form action="{{ route('trips.destroy', $trip->id) }}" method="POST" style="display:inline;">
                                 @csrf
